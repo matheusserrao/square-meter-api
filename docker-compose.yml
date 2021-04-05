@@ -1,0 +1,47 @@
+version: '3.5'
+
+services:
+
+  db:
+    image: postgres:11-alpine
+    container_name: "postgres-docker"
+    restart: "always"
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_PORT}
+    networks: 
+      - square-meter-network
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  square-meter-api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: square-meter-api:latest
+    container_name: square-meter-api-docker
+    restart: always
+    ports:
+        - ${PORT}:${PORT}
+    expose: 
+        - ${PORT}
+    networks: 
+        - square-meter-network
+    depends_on: 
+        - db 
+    command: npm run start:prod
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks: 
+  square-meter-network:
+    name: square-meter-network
