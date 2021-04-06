@@ -20,6 +20,11 @@ import { MeterModule } from './meter/meter.module';
         database: process.env.DATABASE_NAME,
         entities: [MeterEntity],
         synchronize: true,
+        extra: {
+          ssl: {
+            rejectUnauthorized: false
+          }
+        }
       }
     ),
     MeterModule
