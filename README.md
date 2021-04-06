@@ -27,6 +27,11 @@ This  repo uses the NestJS swagger module for API documentation. NestJS Swagger 
 ```bash
 $ docker-compose up -d --build
 ```
+## Database
+
+The codebase contains examples of  database abstractions, namely TypeORM.
+
+The branch master implements TypeORM with a **Postgres** database
 
 ## Installation
 
