@@ -36,9 +36,9 @@ $ npm install
 ## Environment Variables
 ```
 END_POINT = 'http://localhost'
-PORT = 3000
+PORT = 3000 [PORT OF APP]
 
-ROUTE_PREFIX = 'square-meter'
+ROUTE_PREFIX = 'square-meter' [PREFIX OF ROUTES]
 
 DATABASE_HOST = [HOST OF DATABASE]
 DATABASE_PORT = [ PORT OF DATABASE]
