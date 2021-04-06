@@ -23,6 +23,11 @@
 
 This  repo uses the NestJS swagger module for API documentation. NestJS Swagger - https://app-square-meter-api.herokuapp.com/square-meter/api/#/
 
+## Running with Docker and Docker Compose
+```bash
+$ docker-compose up -d --build
+```
+
 ## Installation
 
 ```bash
